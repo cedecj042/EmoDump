@@ -1,0 +1,28 @@
+.home {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100vw;
+}   
+.backgroundImage {
+    width: 110vw;
+    min-height: 100vh; /* Adjusted */
+    background-image: url("../../../assets/images/newbg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+.main-content {
+    height: 100%;
+    overflow-y: auto;
+}
+.row{
+    height: 100vh;
+}
+.padding{
+    padding: 3000px 100px;
+}

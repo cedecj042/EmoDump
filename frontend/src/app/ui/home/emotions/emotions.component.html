@@ -1,0 +1,45 @@
+@if(this.dump){
+<div class="container canvas p-3">
+    <div class="row px-2 py-4 d-flex gap-4">
+        <div class="col-12">
+            <!---put the scene here --->
+            <!-- <canvas #canvas></canvas> -->
+            <h4>Top Predicted Emotions</h4>
+            <!-- <hr> -->
+            <div class="emojis row py-3">
+                @if(this.topEmotions){
+                @for(emotions of this.topEmotions;track emotions){
+                <div class="col  d-flex flex-column justify-content-center align-items-center gap-2">
+                    <!-- <img src="../../../../assets/images/avatar-placeholder.png" alt="" width="100" height="100"> -->
+                    <!-- <img [src]="'../assets/models/' + emotions.emotion_name + '.jpg'" alt="" width="100px" height="100px"> -->
+                  <div [ngClass]="emotions.emotion_name" class="emoji"></div>
+                  <p>{{emotions.emotion_name}}</p>
+                  <label class="probability">{{emotions.probability}}%</label>
+                </div>
+                }
+                }
+            </div>
+        </div>
+        <div class="col-12">
+            <h6>Dump</h6>
+            <div class="content">
+                <p>{{this.dump.dump_content}}</p>
+                <p class="date" for="timestamp">{{ dump.dump_timestamp | date: 'MMMM d, h:mm a' }}</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <h6>Probabilities:</h6>
+            <ul class="emotion d-flex flex-wrap flex-row gap-2 ">
+                @for(emotion of this.mappedEmotions;track emotion){
+                <li class="list">
+                    <label>{{emotion.emotion_name}}</label>
+                    <p class="text-left">{{emotion.probability}}%</p>
+                </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+}

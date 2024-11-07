@@ -1,0 +1,141 @@
+<div class="container-fluid px-0 register d-flex gap-5 flex-column">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-6">
+            <form action="" [formGroup]="registerForm" class="d-flex flex-column gap-2">
+                <h3>Sign Up</h3>
+                <hr>
+                <h5>Personal Details</h5>
+                <label>Profile Picture</label>
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="avatar-container">
+                        @if(uploadedFiles.uuid === ''){
+                        <div class="image-container avatar-placeholder">
+                        </div>
+                        }
+                        @else {
+                        <div class="image-container"
+                            [ngClass]="{'box-shadow-avatar': !!uploadedFiles}"
+                            [ngStyle]="{backgroundImage: 'url(' + uploadedFiles.cdnUrl + uploadedFiles.uuid + ')'}">
+                        </div>
+                        }
+                        <!-- <label for="avatar-input-file">
+                            <div class="icon-wrapper">
+                                <input type="file" id="avatar-input-file" accept="image/*"
+                                    formControlName="profileImage" (change)="onFileChange($event)" />
+                                <mat-icon class="icon" fontIcon="edit"></mat-icon>
+
+                            </div>
+                        </label> -->
+                    </div>
+                </div>
+                <!-- @if(registerForm.get('profileImage')?.value){
+                <button class="btn btn-light clear-btn mt-2" type="button" (click)="clearProfile()">Clear Image</button>
+                } -->
+                <lr-config
+                    ctx-name="my-uploader"
+                    pubkey="0a016c5a0970f05c7757"
+                    max-local-file-size-bytes="10000000"
+                    multiple="false"
+                    img-only="true"
+                    removeCopyright="true"
+                ></lr-config>
+                <lr-file-uploader-minimal
+                    ctx-name="my-uploader"
+                    class="my-config"
+                    css-src="https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.30.0/web/lr-file-uploader-minimal.min.css"
+                >
+                </lr-file-uploader-minimal>
+                <lr-upload-ctx-provider
+                ctx-name="my-uploader"
+                #ctxProvider
+                ></lr-upload-ctx-provider>
+                <br>
+                <div class="row d-flex justify-content-center gap-1">
+                    <div class="col d-flex flex-column">
+                        <label for="firstname">First Name</label>
+                        <input class="error-outline" type="text" formControlName="firstname" placeholder="John">
+                        @if(registerForm.get('firstname')?.errors && registerForm.get('firstname')?.touched){
+                        <p class="error">Please enter your first name</p>
+                        }
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <label for="lastname">Last Name</label>
+                        <input class="error-outline" type="text" formControlName="lastname" placeholder="Dela Cruz">
+                        @if(registerForm.get('lastname')?.errors && registerForm.get('lastname')?.touched){
+                        <p class="error">Please enter your last name</p>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8 d-flex flex-column">
+                        <label for="birtdate">Birthdate</label>
+                        <input type="date" formControlName="birthdate">
+                    </div>
+                    <div class="col-4 d-flex flex-column">
+                        <label for="gender">Gender</label>
+                        <select formControlName="gender">
+                            <option [ngValue]="null" disabled>Select Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <h5>Login Details</h5>
+                <label for="email">Email</label>
+                <div class="input-icon-container">
+                    <mat-icon class="input-icon" fontIcon="mail"></mat-icon>
+                    <input class="input-with-icon error-outline" type="email" formControlName="email"
+                        placeholder="example@email.com" [ngStyle]="{}">
+                </div>
+                @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+                <p class="error">Invalid Email</p>
+                }@else if (registerForm.get('email')?.hasError('emailExists')) {
+                    <p class="error">Email already exists</p>
+                }
+                <label for="username">Username</label>
+                <div class="input-icon-container">
+                    <mat-icon class="input-icon" fontIcon="person"></mat-icon>
+                    <input class="input-with-icon error-outline" type="text" formControlName="username"
+                        placeholder="username">
+                </div>
+                @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched){
+                <p class="error">Please enter your username</p>
+                }@else if (registerForm.get('username')?.hasError('usernameExists')) {
+                    <p class="error">Username already exists</p>
+                }
+                
+                <label for="password">Password</label>
+                <div class="input-icon-container">
+                    <mat-icon class="input-icon" fontIcon="lock"></mat-icon>
+                    <input class="input-with-icon error-outline" [type]="visibility ? 'text' : 'password'"
+                        formControlName="password" placeholder="********">
+                    <span class="input-eye">
+                        <button class="eye-btn d-flex align-items-center justify-content-center"
+                            (click)="visibility=!visibility">
+                            @if(visibility){
+                            <mat-icon class="eyeIcon" fontIcon="visibility"></mat-icon>
+                            }@else{
+                            <mat-icon class="eyeIcon" fontIcon="visibility_off"></mat-icon>
+                            }
+                        </button>
+                    </span>
+                </div>
+                @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+                <p class="error">Password should be atleast 8 characters</p>
+                }
+                <br>
+                <button type="submit" class="btn register-btn"
+                    [ngClass]="registerForm.invalid ? 'btn-secondary':'btn-primary'" [disabled]="registerForm.invalid"
+                    (click)="registerUser()">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
+            <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+        </div>
+    </div>
+
+</div>
+<div class="backgroundImage"></div>

@@ -1,0 +1,12 @@
+<div class="container dumps p-4">
+    <form action="" [formGroup]="dumpForm" class="d-flex flex-column gap-2">
+        <label for="dumpContent">How's your day?</label>
+        <textarea type="textarea"  formControlName="dump_content" placeholder="Tell me about it..." id="dumpArea">
+        </textarea>
+        <div class="dump-icon-container d-flex justify-content-end">
+            <button class="btn btn-primary d-flex justify-content-center align-items-center gap-1" (click)="createDump()">Post
+                <mat-icon fontIcon="send" class="dump-icon"></mat-icon>
+            </button>
+        </div>
+    </form>
+</div>

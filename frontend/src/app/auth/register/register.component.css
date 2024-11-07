@@ -1,0 +1,154 @@
+.register {
+    padding: 80px 0;
+    scroll-behavior: auto;
+}
+.backgroundImage {
+    width: 100vw;
+    min-height: 100vh; /* Adjusted */
+    background-image: url("../../../assets/images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+h5 {
+    font-size: 18px;
+}
+
+.avatar-container {
+    position: relative;
+    width: fit-content;
+}
+
+.image-container {
+    height: 150px;
+    width: 150px;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 1px 5px 3px rgba(0, 0, 0, .04);
+}
+.icon-wrapper {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    padding: .35rem;
+    background-color: #2962FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: 75%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.icon-wrapper label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrapper input[type='file'] {
+    display: none;
+}
+
+.icon-wrapper:hover {
+    transition: all .25s;
+    background-color: darken(#133fb9, 15%);
+}
+
+.icon {
+    color: white;
+}
+
+.avatar-container label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container.avatar-placeholder {
+    background-image: url('../../../assets/images/avatar-placeholder.png');
+}
+
+input,select{
+    height: 52px;
+    width: 100%;
+    border-radius: 10px;
+    padding:0 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.12 );
+}
+
+.input-icon-container {
+    position: relative;
+    display: inline-block;
+}
+.input-with-icon {
+    padding-left: 40px; 
+}
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    box-shadow: none;
+}
+label{
+    font-size: 16px;
+    color: #383838;
+}
+input:focus{
+    /* border: 2px solid #176BCE !important; */
+    outline: 2px solid #176BCE ;
+}
+select:focus{
+    outline: 2px solid #176BCE ;
+}
+.input-eye{
+    position: absolute;
+    top: 0;
+    right: 1%;
+}
+.eye-btn{
+    width: 46px;
+    height: 52px;
+    border:none;
+    outline:none;
+    background-color: transparent;
+
+}
+.error-outline.ng-invalid.ng-touched {
+    outline: 2px solid rgb(232, 9, 9);
+}
+.error{
+    color: rgb(232, 9, 9);
+}
+input::placeholder{
+    color: #b8b8b8;
+    opacity: 1;
+}
+.register-btn{
+    height: 52px;
+}
+.clear-btn{
+    width: 150px;
+}
+
+.my-config {
+    --darkmode: 0;
+    --h-accent: 223;
+    --s-accent: 100%;
+    --l-accent: 61%;
+  }
+

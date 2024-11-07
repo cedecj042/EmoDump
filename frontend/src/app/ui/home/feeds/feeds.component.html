@@ -1,0 +1,53 @@
+<div class="container feed">
+    <div class="row">
+        <div class="col-12 d-flex flex-column gap-2">
+            @if(isLoaded){
+                @for(dump of this.dumps;track dump){
+                    @defer () {
+                        <div class="dump" [ngClass]="{'active': dump.dump_id === activeDumpId}" id="{{dump.dump_id}}">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 for="username">&#64;{{currentUser.username}}</h5>
+                                <div class="drop d-flex flex-row justify-content-center align-items-center">
+                                    <a class="btn mybtn" (click)="sendDataToCanvas(dump)">
+                                        @if(dump.dump_id === activeDumpId){
+                                            <mat-icon fontIcon="visibility_off"></mat-icon>
+                                        }@else{
+                                            <mat-icon fontIcon="visibility"></mat-icon>
+                                        }
+
+                                    </a>
+                                    <div class="dropdown show">
+                                        <a class="btn mybtn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <mat-icon fontIcon="more_horiz"></mat-icon>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                          <a class=" btn dropdown-item d-flex flex-row justify-content-start align-items-center gap-2" (click)="deleteDump(dump.dump_id)"> <mat-icon class="delete-icon" fontIcon="delete"></mat-icon>Delete</a>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <p for="timestamp" class="date">{{ dump.dump_timestamp | date: 'MMMM d, h:mm a' }}</p>
+                            <div class="dumpContent mb-2">
+                                <p>{{dump.dump_content}}</p>
+                            </div>
+                        </div>
+                    }@placeholder(minimum 1s) {
+                        <div  class="dump">
+                            <app-loader  Cheight="24" Cwidth="125"></app-loader>
+                            <div class=" ml-3">
+                                <app-loader  Cheight="24" Cwidth="inherit"></app-loader>
+                            </div>
+                        </div>
+                    }@loading {
+                        <div  class="dump">
+                            <app-loader  Cheight="24" Cwidth="125"></app-loader>
+                            <div class=" ml-3">
+                                <app-loader  Cheight="24" Cwidth="inherit"></app-loader>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="backgroundImage"></div>
+<div class="container-fluid home p-0">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-2">
+            <app-nav [currentUser]="currentUser"></app-nav>
+        </div>
+        <div class="col py-4 feed" [ngClass]="{'padding': !dumps}">
+            <app-dump [currentUser]="currentUser"></app-dump>
+            <app-feeds [currentUser]="currentUser"></app-feeds>
+        </div>
+        @if(dumps){
+            <div class="col-4">
+                <app-emotions></app-emotions>
+              </div>
+        }
+    </div>
+</div>

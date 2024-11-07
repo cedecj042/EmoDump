@@ -1,0 +1,79 @@
+.canvas{
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: -1;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.05);
+    background: rgba( 255, 255, 255, 0.15 );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+}
+
+ul.emotion {
+    /* gap: 10px; */
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+  }
+  
+  ul.emotion li {
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    text-align: center; /* Center the text */
+    height: 60px;
+    width: 100px;
+    flex-grow: 1;
+  }
+  p,label{
+    margin:0;
+    font-size: 14px;
+  }
+
+  .content{
+    background-color: rgba(233, 233, 245, 0.45);
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .Angry{
+    background-image: url('../../../../assets/gif/Angry.gif');
+  }
+  .Joy{
+    background-image: url('../../../../assets/gif/Joy.gif');
+  }
+  .Trust{
+    background-image: url('../../../../assets/gif/Trust.gif');
+  }
+  .Anticipation{
+    background-image: url('../../../../assets/gif/Anticipation.gif');
+  }
+  .Disgust{
+    background-image: url('../../../../assets/gif/Disgust.gif');
+  }
+  .Fear{
+    background-image: url('../../../../assets/gif/Fear.gif');
+  }
+  .Surprise{
+    background-image: url('../../../../assets/gif/Surprise.gif');
+  }
+  .Sadness{
+    background-image: url('../../../../assets/gif/Sadness.gif');
+  }
+  .emoji {
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .emojis p{
+    font-weight:600;
+    font-size: 18px;
+    font-family: Inter;
+  }
+  .emotion .list{
+background: rgba(231, 238, 255, 0.15);
+border-radius: 10px;
+margin:3px
+  }

@@ -1,0 +1,26 @@
+.login{
+    padding: 0 80px;
+    height: 100vh;
+}
+.backgroundImage {
+    width: 100vw;
+    min-height: 100vh; /* Adjusted */
+    background-image: url("../../../assets/images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+.logo {
+    font-weight: 700;
+}
+p{
+    font-size: 24px;
+    color: #27005D;
+}
+h1 {
+    color: #6420AA;
+}
